@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+		<div class="banner">
+			<h1>LOG IN</h1>
+		</div>
+		<div class="content">
+            <form method="POST" action="/login">
+            <input  name="loginField" placeholder="Login">
+            <input type="password" name="passField" placeholder="Password">
+                <div class="btns">
+            <button id="sendbtn">Log in</button>
+            <button id="sendbtn" name="regBtn" value="true">Registration</button>
+            </div>
+            </form>
+		</div>
+
+{% endblock %}

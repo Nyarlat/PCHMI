@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+		<div class="banner">
+			<h1>REGISTRATION</h1>
+		</div>
+		<div class="content" >
+            <form method="POST" action="/register">
+            <input  name="loginField" placeholder="Login">
+            <input type="password" name="passField" placeholder="Password">
+            <input  name="emailField" placeholder="E-mail">
+            <button id="regbn">Send</button>
+            </form>
+		</div>
+
+
+{% endblock %}

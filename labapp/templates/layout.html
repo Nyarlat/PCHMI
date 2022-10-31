@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="/static/stylesheets/{{css}}">
+	<title>{{title}}</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+		<img src="/static/images/Logo.png" id="logo">
+            <nav>
+                    <ul class="top-menu">
+                        {% for item in navmenu %}
+                            <li><a class="menu" href="{{item.addr}}">{{item.name}} </a></li>
+                        {% endfor %}
+                    </ul>
+            </nav>
+	</header>
+	<main id="{{pname}}">
+		{% block content %}{% endblock %}
+	</main>
+	<footer>
+		<div class="fcols">
+			<div class="fcolomn">
+				<h2>ABOUT US</h2>
+				<div class="abzfoot">
+					<p>Company Overview</p>
+					<p>Customers</p>
+					<p>Testimonials</p>
+				</div>
+			</div>
+			<div class="fcolomn">
+				<h2>SERVICES</h2>
+				<div class="abzfoot">
+					<p>UI Design</p>
+					<p>Consulting</p>
+					<p>Support</p>
+				</div>
+			</div>
+			<div class="fcolomn">
+				<h2>BLOG</h2>
+				<div class="abzfoot">
+					<p>Latest posts</p>
+					<p>Popular posts</p>
+				</div>
+			</div>
+			<div class="fcolomn">
+				<h2>CONTACT</h2>
+				<div class="abzfoot">
+					<p>Online</p>
+					<p>Addresses</p>
+					<p>Map</p>
+				</div>
+			</div>
+		</div>
+		<div class="logobot">
+			<img src="/static/images/Logo-bottom.png" id="logo2">
+		</div>
+	</footer>
+	<script type="text/javascript" src="/static/javascripts/{{js}}"></script>
+	<script type="text/javascript" src="/static/javascripts/previous_requests.js"></script>
+</body>
+</html>

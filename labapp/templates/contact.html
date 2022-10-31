@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+		<div class="banner">
+			<h1>CONTACT</h1>
+		</div>
+		<div class="content">
+			<div class="columns">
+					<div class="colomn">
+						<h3>KEEP IN TOUCH</h3>					
+						<p class="info">You can issue a written appeal or leave a review about the work of the company. Our employees respond within 72 hours.</p>
+						<p class="info">dreamteam@gmail.com</p>
+						<p class="info" id="statusfield"></p>
+						<h4>Your past requests:</h4><br>
+						<form method="GET" action="/previous_requests">
+							<div id="previous_requests"></div>
+						</form>
+					</div>
+					<div class="colomn">
+						<br><br><br><br>
+						<input  name="fname" placeholder="First name">
+						<input  name="lname" placeholder="Last name">
+						<input  name="email" placeholder="E-mail">
+						<textarea name="reqtext" placeholder="Message"></textarea>
+						<div class="btnflex">
+							<button id="sendbtn">Send</button>
+						</div>
+					</div>
+				</div>
+		</div>
+
+{% endblock %}
+
