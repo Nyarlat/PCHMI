@@ -14,3 +14,5 @@ db = SQLAlchemy(app)
 
 # Подключаем маршруты (адреса REST запросов)
 from labapp import routes
+
+# тест
