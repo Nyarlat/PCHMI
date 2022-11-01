@@ -62,7 +62,6 @@ def homepage():
 
 # Обработка запроса к странице contact.html
 @app.route('/contact')
-@login_required
 def contact():
     css = "contact.css"
     js = "formsend.js"
@@ -77,6 +76,7 @@ def aboutus():
     return render_template('aboutus.html', title='About Us', pname='ABOUT US', navmenu=navmenu, imgs=imgs, css=css, js=js)
 
 @app.route('/services')
+@login_required
 def services():
     css = "services.css"
     imgs = ['Logo.png', 'turbine.png', 'Logo-bottom.png']
