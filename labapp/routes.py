@@ -80,8 +80,9 @@ def aboutus():
 def services():
     css = "services.css"
     imgs = ['Logo.png', 'turbine.png', 'Logo-bottom.png']
+    js = "services.js"
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('services.html', title='Services', pname='SERVICES', navmenu=navmenu, imgs=imgs, css=css)
+    return render_template('services.html', title='Services', pname='SERVICES', navmenu=navmenu, imgs=imgs, css=css,js=js)
 
 @app.route('/blog')
 def blog():

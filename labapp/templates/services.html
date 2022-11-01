@@ -6,49 +6,44 @@
 			<h1>SERVICES</h1>
 		</div>
 		<div class="content">
-			<h3>MAIN SERVICE</h3>
-			<p>Whitesquare is a global professional services company specialising in wind power and wind turbines. We are the world’s first classification society, created more than 25 years ago to get energy from the power of the wind. Because wind energy offers a huge number of advantages over traditional fossil fuels. Our technical expertise is offered in more than 70 locations, serving client based in 182 countries. </p>
-			<div class="imgmark">
-				<img src="/static/images/turbine.png" id="turbine">
-				<div class="bullets">
-					<div class="bul">
-						<div class="quad"></div>
-						<h4>Availability</h4>
-					</div>
-					<div class="bul">
-						<div class="quad"></div>
-						<h4>Practicality</h4>
-					</div>
-					<div class="bul">
-						<div class="quad"></div>
-						<h4>Environmental friendliness</h4>
-					</div>
-					<div class="bul">
-						<div class="quad"></div>
-						<h4>Cheap price</h4>
-					</div>
-					<div class="bul">
-						<div class="quad"></div>
-						<h4>Noiselessness</h4>
-					</div>
-					<div class="bul">
-						<div class="quad"></div>
-						<h4>Fast delivery and connection</h4>
-					</div>
-					<div class="bul">
-						<div class="quad"></div>
-						<h4>5-year warranty</h4>
-					</div>
-					<div class="bul">
-						<div class="quad"></div>
-						<h4>High performance</h4>
-					</div>
-					<div class="bul">
-						<div class="quad"></div>
-						<h4>Easy to use</h4>
-					</div>
-				</div>
-			</div>
+			<div class="dropdown">
+			<input onclick="func_show('place_drop')" type="text" placeholder="Выберите место" id="myInput" onkeyup="filterFunction()">
+		  <div id="place_drop" class="dropdown-content">
+			<a href="#">Место 1</a>
+			<a href="#">Место 2</a>
+			<a href="#">Место 3</a>
+			<a href="#">Место 4</a>
+			<a href="#">Место 5</a>
+			<a href="#">Место 6</a>
+			<a href="#">Место 7</a>
+		  </div>
+		</div>
+
+		<div class="dropdown">
+			<input onclick="func_show('type_drop')" type="text" placeholder="Выберите тип" id="myInput" onkeyup="filterFunction()">
+		  <div id="type_drop" class="dropdown-content">
+			<a href="#">Вид 1</a>
+			<a href="#">Вид 2</a>
+			<a href="#">Вид 3</a>
+			<a href="#">Вид 4</a>
+			<a href="#">Вид 5</a>
+			<a href="#">Вид 6</a>
+			<a href="#">Вид 7</a>
+		  </div>
+		</div>
+
+		<div class="dropdown">
+			<input onclick="func_show('date_drop')" type="text" placeholder="Выберите дату" id="myInput" onkeyup="filterFunction()">
+		  <div id="date_drop" class="dropdown-content">
+			<a id="a_drop" onclick="func_click_on_a('a_drop')" href="#">Место 1</a>
+			<a href="#">Место 2</a>
+			<a href="#">Место 3</a>
+			<a href="#">Место 4</a>
+			<a href="#">Место 5</a>
+			<a href="#">Место 6</a>
+			<a href="#">Место 7</a>
+		  </div>
+		</div>
 		</div>
 		<div class="info">
 				<div class="columns">
