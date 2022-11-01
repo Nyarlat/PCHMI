@@ -186,3 +186,4 @@ def register_user(form_data):
         return make_response(jsonify({'message': str(e)}), 500)
 
 
+#test
