@@ -149,7 +149,7 @@ def login_user(form_data):
         return redirect(url_for('login'))
     # иначе регистрируем сессию пользователя (записываем логин пользователя в параметр user) и высылаем cookie "AuthToken"
     else:
-        response = redirect('/contact')
+        response = redirect('/services')
         session['user'] = user['username']
         session['userId'] = user['id']
         response.set_cookie('AuthToken', user['username'])
