@@ -190,7 +190,7 @@ a{
 	background: #16a085;
 	line-height: 1;
     -webkit-transition: all 0.5s ease;
-            transition: all 0.5s ease; 
+            transition: all 0.5s ease;
 }
 
 a:hover{
