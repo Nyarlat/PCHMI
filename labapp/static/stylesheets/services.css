@@ -187,7 +187,6 @@ footer{
 a{
 	text-decoration: none;
 	color: #d1d9e2;
-	background: #16a085;
 	line-height: 1;
     -webkit-transition: all 0.5s ease;
             transition: all 0.5s ease;
@@ -198,20 +197,22 @@ a:hover{
   text-shadow: 2px 2px 3px black;
 }
 
-#myInput {
-  box-sizing: border-box;
+.input-content {
   background-image:url('https://www.freeiconspng.com/thumbs/search-icon-png/search-icon-png-21.png');
+  background-size: 20px 20px;
   background-position: 14px 12px;
   background-repeat: no-repeat;
   font-size: 16px;
   padding: 14px 20px 12px 45px;
   border: none;
   border-bottom: 1px solid #ddd;
+  width:200px;
 }
 
 #myInput:focus {outline: 3px solid #ddd;}
 
 .dropdown {
+  padding:100px;
   position: relative;
   display: inline-block;
 }
@@ -236,3 +237,12 @@ a:hover{
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
