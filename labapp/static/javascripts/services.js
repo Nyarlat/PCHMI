@@ -2,8 +2,12 @@ function func_show(obj) {
   document.getElementById(obj).classList.toggle("show");
 }
 
-function func_click_on_a(obj) {
-  str = document.getElementById(obj);
+function click_atag(obj1,obj2) {
+  str = document.getElementById(obj1);
+  search = document.getElementById(obj2);
+  search.value = str.text;
+  prnt = str.parentElement
+  prnt.classList.toggle("show");
 }
 
 function filterFunction() {

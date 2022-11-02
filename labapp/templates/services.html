@@ -3,48 +3,40 @@
 {% block content %}
 
 		<div class="banner">
-			<h1>SERVICES</h1>
-		</div>
-		<div class="content">
 			<div class="dropdown">
-			<input onclick="func_show('place_drop')" type="text" placeholder="Выберите место" id="myInput" onkeyup="filterFunction()">
+			<input class="input-content" onclick="func_show('place_drop')" type="text" placeholder="Место" id="myInput1" onkeyup="filterFunction()">
 		  <div id="place_drop" class="dropdown-content">
-			<a href="#">Место 1</a>
-			<a href="#">Место 2</a>
-			<a href="#">Место 3</a>
-			<a href="#">Место 4</a>
-			<a href="#">Место 5</a>
-			<a href="#">Место 6</a>
-			<a href="#">Место 7</a>
+			<a id="a1" onclick="click_atag(id,'myInput1')" href="#">Место 1</a>
+			<a id="a2" onclick="click_atag(id,'myInput1')" href="#">Место 2</a>
+			<a id="a3" onclick="click_atag(id,'myInput1')" href="#">Место 3</a>
+			<a id="a4" onclick="click_atag(id,'myInput1')" href="#">Место 4</a>
+			<a id="a5" onclick="click_atag(id,'myInput1')" href="#">Место 5</a>
+			<a id="a6" onclick="click_atag(id,'myInput1')" href="#">Место 6</a>
+			<a id="a7" onclick="click_atag(id,'myInput1')" href="#">Место 7</a>
 		  </div>
 		</div>
 
 		<div class="dropdown">
-			<input onclick="func_show('type_drop')" type="text" placeholder="Выберите тип" id="myInput" onkeyup="filterFunction()">
+			<input class="input-content" onclick="func_show('type_drop')" type="text" placeholder="Вид отдыха" id="myInput2" onkeyup="filterFunction()">
 		  <div id="type_drop" class="dropdown-content">
-			<a href="#">Вид 1</a>
-			<a href="#">Вид 2</a>
-			<a href="#">Вид 3</a>
-			<a href="#">Вид 4</a>
-			<a href="#">Вид 5</a>
-			<a href="#">Вид 6</a>
-			<a href="#">Вид 7</a>
+			<a id="b1" onclick="click_atag(id,'myInput2')" href="#">Вид 1</a>
+			<a id="b2" onclick="click_atag(id,'myInput2')" href="#">Вид 2</a>
+			<a id="b3" onclick="click_atag(id,'myInput2')" href="#">Вид 3</a>
+			<a id="b4" onclick="click_atag(id,'myInput2')" href="#">Вид 4</a>
+			<a id="b5" onclick="click_atag(id,'myInput2')" href="#">Вид 5</a>
+			<a id="b6" onclick="click_atag(id,'myInput2')" href="#">Вид 6</a>
+			<a id="b7" onclick="click_atag(id,'myInput2')" href="#">Вид 7</a>
 		  </div>
 		</div>
 
 		<div class="dropdown">
-			<input onclick="func_show('date_drop')" type="text" placeholder="Выберите дату" id="myInput" onkeyup="filterFunction()">
-		  <div id="date_drop" class="dropdown-content">
-			<a id="a_drop" onclick="func_click_on_a('a_drop')" href="#">Место 1</a>
-			<a href="#">Место 2</a>
-			<a href="#">Место 3</a>
-			<a href="#">Место 4</a>
-			<a href="#">Место 5</a>
-			<a href="#">Место 6</a>
-			<a href="#">Место 7</a>
-		  </div>
+			<input class="input-content"  type="text" onfocus="(this.type='date')" placeholder="Дата" id="myInput3" onkeyup="filterFunction()">
 		</div>
+			<button  class="dropbtn"> Поиск</button>
 		</div>
+
+		<div class="content">
+
 		<div class="info">
 				<div class="columns">
 					<div class="colomn">
@@ -61,5 +53,5 @@
 					</div>
 				</div>
 			</div>
-
+		</div>
 {% endblock %}
