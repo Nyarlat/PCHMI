@@ -212,7 +212,7 @@ a:hover{
 #myInput:focus {outline: 3px solid #ddd;}
 
 .dropdown {
-  padding:100px;
+  padding:60px;
   position: relative;
   display: inline-block;
 }
@@ -245,4 +245,5 @@ a:hover{
   font-size: 16px;
   border: none;
   cursor: pointer;
+  width:100px;
 }
