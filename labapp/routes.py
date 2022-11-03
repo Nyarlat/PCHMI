@@ -56,7 +56,7 @@ def login_required(route_func):
 @app.route('/homepage')
 def homepage():
     css = "homepage.css"
-    imgs = ['Logo.png', 'Global.jpg', 'Logo-bottom.png']
+    imgs = ['Logo.png', 'st-petersburg.jpg','man-touris.jpg', 'Logo-bottom.png']
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
     return render_template('homepage.html', title='Wind Power', pname='HOME', navmenu=navmenu, imgs=imgs, css=css)
 
