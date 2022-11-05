@@ -354,3 +354,36 @@ a:hover{
 		        transform: translateX(100%);
 	}
 }
+
+.info {
+    width: 960px;
+    height: auto;
+    margin: 30px auto;
+    padding: 25px 40px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgb(0 0 0 / 15%);
+    text-align: center;
+}
+
+.topic-info {
+	padding-top: 80px;
+	color: #16a085;
+	font-size: 28px;
+	font-family: Lato;
+	font-weight: 300;
+}
+.text-info {
+	color: #7f8c8d;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 16px;
+	font-family: Lato;
+}
+
+.text-gallary {
+    color: #ecf0f1;
+    background: #56ad9c;
+    padding-top: 30px;
+	padding-bottom: 30px;
+}
