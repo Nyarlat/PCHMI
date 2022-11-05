@@ -30,10 +30,10 @@ navmenu = [
         'name': 'SERVICES',
         'addr': '/services'
     },
-    {
-        'name': 'BLOG ',
-        'addr': '/blog'
-    },
+    #{
+    #    'name': 'BLOG ',
+    #    'addr': '/blog'
+    #},
     {
         'name': 'CONTACT',
         'addr': '/contact'
@@ -84,12 +84,6 @@ def services():
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
     return render_template('services.html', title='Services', pname='SERVICES', navmenu=navmenu, imgs=imgs, css=css,js=js)
 
-@app.route('/blog')
-def blog():
-    css = "blog.css"
-    imgs = ['Logo.png', 'Logo-bottom.png']
-    # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('blog.html', title='Blog', pname='BLOG', navmenu=navmenu, imgs=imgs, css=css)
 
 @app.route('/previous_requests', methods=['GET'])
 def get_previous_requests():
