@@ -40,7 +40,7 @@ sendbtn.addEventListener("click", function (e) {
                 let statfield = document.getElementById("statusfield");
                 //statfield.textContent = data.message;
                 //statfield.textContent.bold();
-                //alert("Обращение отправлено!");
+                alert("Обращение отправлено!");
             });
         })
         .catch( error => {
