@@ -19,12 +19,12 @@
 					</div>
 					<div class="colomn">
 						<br><br><br><br>
-						<input  name="fname" placeholder="First name">
-						<input  name="lname" placeholder="Last name">
-						<input  name="email" placeholder="E-mail">
+						<input  name="fname" placeholder="First name" pattern="[a-z]{1,20}" required>
+						<input  name="lname" placeholder="Last name" pattern="[a-z]{1,20}" required>
+						<input  name="email" type="email" placeholder="E-mail" required>
 						<textarea name="reqtext" placeholder="Message"></textarea>
 						<div class="btnflex">
-							<button id="sendbtn">Send</button>
+							<button id="sendbtn" type="submit" value="Submit">Send</button>
 						</div>
 					</div>
 				</div>
