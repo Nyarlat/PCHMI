@@ -185,5 +185,14 @@ def register_user(form_data):
         # возвращаем response с ошибкой сервера
         return make_response(jsonify({'message': str(e)}), 500)
 
+def search(name):
+    place = name.get('place')
+    type = name.get('type')
+    places = db.session.execute("SELECT username FROM logins").fetchall()
+    types = db.session.execute("SELECT email FROM logins").fetchall()
+    for i in range(len(places)):
+        if (place == places[i][0] and type == types[i][0]):
+            return 'yes'
+    return 'no'
 
 #test
