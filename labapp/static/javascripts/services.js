@@ -25,3 +25,28 @@ function filterFunction() {
     }
   }
 }
+
+//var sendbtn = document.getElementsByClassName("dropbtn")   // выбираем DOM-елемент (кнопку)
+
+function search_d() {
+    var name,place,date;
+    var result;
+    place = document.getElementById("myInput1").value;
+    type_of_place = document.getElementById("myInput2").value;
+    var formdata = JSON.stringify({place: place, type: type_of_place});
+    fetch("/api/tour",
+    {
+       method: "POST",
+       body:formdata,
+       headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then( response => {
+        response.json().then(function(data) {
+            result = data;
+            let statfield = document.getElementById("myInput3");
+            statfield.value = result;
+        });
+    })
+    date = document.getElementById("myInput3").value;
+}

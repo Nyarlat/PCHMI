@@ -169,6 +169,9 @@ def create_contact_req():
         return json_response(response)
 
 
+
+
+
 @app.route('/api/contactrequest/<int:id>', methods=['PUT'])
 # Обработка запроса на обновление записи в БД
 def update_contact_req_by_id(id):
@@ -222,7 +225,10 @@ def bad_request():
     return make_response(jsonify({'error': 'Bad request'}), 400)
 
 
-
+@app.route('/api/tour',methods=['POST'])
+def tour_req():
+    response = dbservice.search(request.json)
+    return json_response(response)
 
 
 
