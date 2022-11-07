@@ -30,10 +30,10 @@ navmenu = [
         'name': 'SERVICES',
         'addr': '/services'
     },
-    {
-        'name': 'BLOG ',
-        'addr': '/blog'
-    },
+    #{
+    #    'name': 'BLOG ',
+    #    'addr': '/blog'
+    #},
     {
         'name': 'CONTACT',
         'addr': '/contact'
@@ -56,7 +56,7 @@ def login_required(route_func):
 @app.route('/homepage')
 def homepage():
     css = "homepage.css"
-    imgs = ['Logo.png', 'Global.jpg', 'Logo-bottom.png']
+    imgs = ['Logo.png', 'st-petersburg.jpg','man-touris.jpg', 'Logo-bottom.png']
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
     return render_template('homepage.html', title='Wind Power', pname='HOME', navmenu=navmenu, imgs=imgs, css=css)
 
@@ -84,12 +84,6 @@ def services():
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
     return render_template('services.html', title='Services', pname='SERVICES', navmenu=navmenu, imgs=imgs, css=css,js=js)
 
-@app.route('/blog')
-def blog():
-    css = "blog.css"
-    imgs = ['Logo.png', 'Logo-bottom.png']
-    # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('blog.html', title='Blog', pname='BLOG', navmenu=navmenu, imgs=imgs, css=css)
 
 @app.route('/previous_requests', methods=['GET'])
 def get_previous_requests():
@@ -175,6 +169,9 @@ def create_contact_req():
         return json_response(response)
 
 
+
+
+
 @app.route('/api/contactrequest/<int:id>', methods=['PUT'])
 # Обработка запроса на обновление записи в БД
 def update_contact_req_by_id(id):
@@ -228,7 +225,10 @@ def bad_request():
     return make_response(jsonify({'error': 'Bad request'}), 400)
 
 
-
+@app.route('/api/tour',methods=['POST'])
+def tour_req():
+    response = dbservice.search(request.json)
+    return json_response(response)
 
 
 
