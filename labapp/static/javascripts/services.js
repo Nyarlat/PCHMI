@@ -26,6 +26,35 @@ function filterFunction() {
   }
 }
 
+function searchd(){
+    let input1, input2;
+    input1 = document.getElementById("myInput1").value;
+    input2 = document.getElementById("myInput2").value;
+    let formdata = JSON.stringify({ place: input1, typeoftour: input2});
+    console.log(formdata)
+
+    fetch("api/tour",
+    {
+        method: "POST",
+        body: formdata,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+   .then( response => {
+        // fetch в случае успешной отправки возвращает Promise, содержащий response объект (ответ на запрос)
+        // Возвращаем json-объект из response и получаем данные из поля message
+        response.json().then(function(data) {
+            console.log(data)
+            alert(data.message);
+        });
+    })
+    .catch( error => {
+        alert(error);
+        console.error('error:', error);
+    });
+    }
+
 //var sendbtn = document.getElementsByClassName("dropbtn")   // выбираем DOM-елемент (кнопку)
 
 function search_d() {
@@ -44,8 +73,7 @@ function search_d() {
     }).then( response => {
         response.json().then(function(data) {
             result = data;
-            let statfield = document.getElementById("myInput3");
-            statfield.value = result;
+            alert(result);
         });
     })
     date = document.getElementById("myInput3").value;

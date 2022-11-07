@@ -8,6 +8,8 @@ from . import dbservice
 
 
 
+
+
 """
 
     Модуль регистрации маршрутов для запросов к серверу, т.е.
@@ -50,6 +52,8 @@ def login_required(route_func):
             return redirect(url_for('login'))
         return route_func(*args, **kwargs)
     return decorated_route
+
+
 
 # Обработка запроса к индексной странице
 @app.route('/')
@@ -129,6 +133,14 @@ def register():
         imgs = ['Logo.png', 'Logo-bottom.png']
         return render_template('register.html', title='Registration', pname='REGISTRATION', navmenu=navmenu, imgs=imgs, css=css)
 
+
+# новый метод
+@app.route('/api/tour/<string:typeoftour>', methods=['GET'])
+def get_tour_req_by_typeoftour(typeoftour):
+    response = dbservice.get_tour_req_by_typeoftour(typeoftour)
+    return json_response(response)
+
+
 @app.route('/api/contactrequest/<int:id>', methods=['GET'])
 # Получаем запись по id
 def get_contact_req_by_id(id):
@@ -153,6 +165,13 @@ def get_get_contact_req_by_author(firstname):
 def get_contact_req_by_data(createdAt):
     response = dbservice.get_contact_req_by_data(createdAt)
     return json_response(response)
+
+
+
+@app.route('/api/tour', methods=['POST'])
+def create_tour_req():
+        response = dbservice.search(request.json)
+        return json_response(response)
 
 
 @app.route('/api/contactrequest', methods=['POST'])
