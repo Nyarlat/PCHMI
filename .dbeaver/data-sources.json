@@ -1,0 +1,29 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-184388bcb42-748d5830e9d0c74e": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "appdb.sqlite",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"database": "C:\\Users\\krusl\\PycharmProjects\\PCHMI\\appdb.sqlite",
+				"url": "jdbc:sqlite:C:\\Users\\krusl\\PycharmProjects\\PCHMI\\appdb.sqlite",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Разработка",
+			"color": "255,255,255",
+			"description": "База данных для разработки",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}
