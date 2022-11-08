@@ -167,6 +167,7 @@ def get_contact_req_by_data(createdAt):
     return json_response(response)
 
 
+# измененный метод
 
 @app.route('/api/tour', methods=['POST'])
 def create_tour_req():
