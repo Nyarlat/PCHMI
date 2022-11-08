@@ -3,7 +3,6 @@ from datetime import datetime
 import re
 from flask import session, make_response, redirect, url_for, jsonify
 import bcrypt
-import pytest
 
 """
     В данном модуле реализуются CRUD-методы для работы с БД.

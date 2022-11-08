@@ -161,7 +161,7 @@ def get_get_contact_req_by_author(firstname):
 
 
 @app.route('/api/contactrequest/<string:createdAt>', methods=['GET'])
-# Получаем все записи contactrequests из БД
+
 def get_contact_req_by_data(createdAt):
     response = dbservice.get_contact_req_by_data(createdAt)
     return json_response(response)
