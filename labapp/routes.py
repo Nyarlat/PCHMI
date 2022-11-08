@@ -169,12 +169,6 @@ def get_contact_req_by_data(createdAt):
 
 # измененный метод
 
-@app.route('/api/tour', methods=['POST'])
-def create_tour_req():
-        response = dbservice.search(request.json)
-        return json_response(response)
-
-
 @app.route('/api/contactrequest', methods=['POST'])
 # Обработка запроса на создание новой записи в БД
 def create_contact_req():
