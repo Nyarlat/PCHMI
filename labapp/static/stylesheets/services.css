@@ -19,8 +19,8 @@ header{
 	justify-content: space-between;
 }
 #logo {
-	width: 133px;
-	height: 25px;
+    width: 213px;
+	height: 40px;
 	padding-left: 150px;
 	z-index: 80px;
 }
@@ -138,8 +138,8 @@ footer{
 }
 #logo2 {
 	padding-right: 150px;
-	width: 192px;
-	height: 36px;
+    width: 213px;
+	height: 40px;
 }
 .logobot {
 	display: flex;
