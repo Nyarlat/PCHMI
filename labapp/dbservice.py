@@ -4,7 +4,6 @@ import re
 from flask import session, make_response, redirect, url_for, jsonify
 import bcrypt
 
-
 """
     В данном модуле реализуются CRUD-методы для работы с БД.
     Если в вашем приложении используется несколько сущностей (таблиц) в БД, то хорошей практикой 
@@ -13,9 +12,17 @@ import bcrypt
 """
 
 
+def get_tour_req_all():  # новый метод
+    result = []
+    rows = db.session.execute("SELECT * FROM tour").fetchall()
+    for row in rows:
+        result.append(dict(row))
+    return {'tour': result}
+
+
 # Получаем список всех запросов.
 def get_contact_req_all():
-    result = []     # создаем пустой список
+    result = []  # создаем пустой список
     # Получаем итерируемый объект, где содержатся все строки таблицы contactrequests
     rows = db.session.execute("SELECT * FROM contactrequests").fetchall()
     # Каждую строку конвертируем в стандартный dict, который Flask может трансформировать в json-строку
@@ -24,8 +31,9 @@ def get_contact_req_all():
     # возвращаем dict, где result - это список с dict-объектов с информацией
     return {'contactrequests': result}
 
+
 def get_login_req_all():
-    result = []     # создаем пустой список
+    result = []  # создаем пустой список
     rows = db.session.execute("SELECT * FROM logins").fetchall()
     # Каждую строку конвертируем в стандартный dict, который Flask может трансформировать в json-строку
     for row in rows:
@@ -33,10 +41,26 @@ def get_login_req_all():
     # возвращаем dict, где result - это список с dict-объектов с информацией
     return {'logins': result}
 
+
+# новый метод
+def get_tour_req_by_id(id):
+    result = db.session.execute(f"SELECT * FROM tour WHERE id = {id}").fetchone()
+    return dict(result)
+
+
 # Получаем запрос с фильтром по id
 def get_contact_req_by_id(id):
-    result = db.session.execute(f"SELECT * FROM contactrequests WHERE id = {id}").fetchone()
+    result = db.session.execute(f"SELECT * FROM tour WHERE id = {id}").fetchone()
     return dict(result)
+
+
+# новый метод
+def get_tour_req_by_typeoftour(typeoftour):
+    result = []
+    rows = db.session.execute(f"SELECT * FROM tour WHERE typeoftour = {typeoftour}").fetchall()
+    for row in rows:
+        result.append(dict(row))
+    return {'tour': result}
 
 
 # Получаем все запросы по имени автора
@@ -51,7 +75,7 @@ def get_contact_req_by_author(firstname):
 # Создать новый запрос
 def create_contact_req(json_data):
     try:
-        cur_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")     # текущая дата и время
+        cur_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # текущая дата и время
         ownerId = session.get('userId')
         # INSERT запрос в БД
         db.session.execute(f"INSERT INTO contactrequests "
@@ -59,7 +83,7 @@ def create_contact_req(json_data):
                            f"VALUES ("
                            f"'{json_data['firstname']}', "
                            f"'{json_data['lastname']}', "
-                           f"'{json_data['email']}', " 
+                           f"'{json_data['email']}', "
                            f"'{json_data['reqtext']}', "
                            f"'{cur_time}', "
                            f"'{cur_time}',"
@@ -75,6 +99,21 @@ def create_contact_req(json_data):
         db.session.rollback()
         # возвращаем dict с ключом 'error' и текcтом ошибки
         return {'message': str(e)}
+
+
+# создание нового запроса к tour
+def create_tour_req(json_data):
+    try:
+        db.session.execute(f"SELECT place FROM tour WHERE place LIKE '{json_data['place']}'")
+        # Возвращаем результат
+        return {'message': "ContactRequest Created!"}
+        # если возникла ошибка запроса в БД
+    except Exception as e:
+        print(json_data)
+        # откатываем изменения в БД
+        db.session.rollback()
+        # возвращаем dict с ключом 'error' и текcтом ошибки
+        # return {'message': str(e)}
 
 
 # Удалить запрос по id в таблице
@@ -102,19 +141,21 @@ def update_contact_req_by_id(id, json_data):
         db.session.rollback()
         return {'message': str(e)}
 
+
 def delete_contact_req_by_data(createdAt):
     try:
         # DELETE запрос в БД
         x = str(createdAt)
         y = x[0:10]
-        if(re.fullmatch(r'\d{4}\-\d\d\-\d\d', y)):
+        if (re.fullmatch(r'\d{4}\-\d\d\-\d\d', y)):
             db.session.execute(f"DELETE FROM contactrequests WHERE createdAt LIKE '%{y}%'")
-            #db.session.execute(f"DELETE FROM contactrequests WHERE createdAt = '{createdAt}'")
+            # db.session.execute(f"DELETE FROM contactrequests WHERE createdAt = '{createdAt}'")
             db.session.commit()
             return {'message': "ContactRequest Deleted!"}
     except Exception as e:
         db.session.rollback()
         return {'message': str(e)}
+
 
 def get_previous_requests():
     result = []
@@ -124,12 +165,14 @@ def get_previous_requests():
         result.append(dict(row))
     return {'contactrequest': result}
 
+
 def get_contact_req_by_data(createdAt):
-        result = []
-        rows = db.session.execute(f"SELECT * FROM contactrequests WHERE createdAt LIKE '%{createdAt}%'").fetchall()
-        for row in rows:
-            result.append(dict(row))
-        return {'contactrequests': result}
+    result = []
+    rows = db.session.execute(f"SELECT * FROM contactrequests WHERE createdAt LIKE '%{createdAt}%'").fetchall()
+    for row in rows:
+        result.append(dict(row))
+    return {'contactrequests': result}
+
 
 # Поиск аккаунта пользователя в БД
 def login_user(form_data):
@@ -154,6 +197,7 @@ def login_user(form_data):
         session['userId'] = user['id']
         response.set_cookie('AuthToken', user['username'])
         return response
+
 
 def register_user(form_data):
     # Получаем данные пользователя из формы
@@ -188,11 +232,8 @@ def register_user(form_data):
 def search(name):
     place = name.get('place')
     type = name.get('type')
-    places = db.session.execute("SELECT username FROM logins").fetchall()
-    types = db.session.execute("SELECT email FROM logins").fetchall()
-    for i in range(len(places)):
-        if (place == places[i][0] and type == types[i][0]):
-            return 'yes'
-    return 'no'
-
-#test
+    date_1 = db.session.execute(f"SELECT datet FROM tours WHERE place = '{place}' AND typeoftour = '{type}'").fetchone()
+    #places = db.session.execute("SELECT place FROM tours").fetchall()
+    #types = db.session.execute("SELECT typeoftour FROM tours").fetchall()
+    return str(date_1[0])
+# test

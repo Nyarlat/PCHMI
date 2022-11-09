@@ -4,6 +4,7 @@ from config import Config
 # Подключение модуля для работы с Базами данных
 from flask_sqlalchemy import SQLAlchemy
 
+
 # Регистрируем приложение Flask
 app = Flask(__name__)
 # Подключаем конфигурацию приложения
