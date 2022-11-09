@@ -3,7 +3,6 @@ from datetime import datetime
 import re
 from flask import session, make_response, redirect, url_for, jsonify
 import bcrypt
-import pytest
 
 """
     В данном модуле реализуются CRUD-методы для работы с БД.
@@ -233,10 +232,8 @@ def register_user(form_data):
 def search(name):
     place = name.get('place')
     type = name.get('type')
-    places = db.session.execute("SELECT place FROM tours").fetchall()
-    types = db.session.execute("SELECT typeoftour FROM tours").fetchall()
-    for i in range(len(places)):
-        if (place == places[i][0] and type == types[i][0]):
-            return 'yes'
-    return 'no'
+    date_1 = db.session.execute(f"SELECT datet FROM tours WHERE place = '{place}' AND typeoftour = '{type}'").fetchone()
+    #places = db.session.execute("SELECT place FROM tours").fetchall()
+    #types = db.session.execute("SELECT typeoftour FROM tours").fetchall()
+    return str(date_1[0])
 # test

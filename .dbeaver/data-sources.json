@@ -1,7 +1,7 @@
 {
 	"folders": {},
 	"connections": {
-		"sqlite_jdbc-184388bcb42-748d5830e9d0c74e": {
+		"sqlite_jdbc-18456235f8c-2ef1d74c623d1476": {
 			"provider": "sqlite",
 			"driver": "sqlite_jdbc",
 			"name": "appdb.sqlite",
@@ -11,7 +11,8 @@
 				"database": "C:\\Users\\krusl\\PycharmProjects\\PCHMI\\appdb.sqlite",
 				"url": "jdbc:sqlite:C:\\Users\\krusl\\PycharmProjects\\PCHMI\\appdb.sqlite",
 				"type": "dev",
-				"auth-model": "native"
+				"auth-model": "native",
+				"handlers": {}
 			}
 		}
 	},
