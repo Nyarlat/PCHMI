@@ -2,8 +2,9 @@
 
 $(document).ready(function () {
     $('.rev_hide').click(function () {
-        //alert("sdfsd");
-        //$('.info').style.display = 'none';
-        $('.info').style.display = block;
+            const info = document.querySelectorAll('.info');
+            for(var i=0; i<info.length; i++)
+                info[i].style.display='block';
+        //info.style.display="block";
     });
 });
