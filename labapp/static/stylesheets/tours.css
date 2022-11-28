@@ -250,7 +250,6 @@ ul {
 .info {
     animation-fill-mode: both;
     animation-timing-function: ease-out;
-    display: none;
 }
 
 footer{
