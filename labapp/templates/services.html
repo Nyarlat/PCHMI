@@ -1,18 +1,18 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
+		<form method="POST" action="/api/tour_search">
 		<div class="banner">
 			<div class="dropdown">
-				<input class="input-content" onclick="func_show('place_drop')" type="text" placeholder="Место" id="myInput1" onkeyup="filterFunction()">
-				  <div id="place_drop" class="dropdown-content">
-					<a id="a1" onclick="click_atag(id,'myInput1')" href="#">Урал</a>
-					<a id="a2" onclick="click_atag(id,'myInput1')" href="#">Алтай</a>
-				  </div>
+			<input class="input-content" onclick="func_show('place_drop')" type="text" placeholder="Место" name = "place" id="myInput1" onkeyup="filterFunction()">
+		  <div id="place_drop" class="dropdown-content">
+			<a id="a1" onclick="click_atag(id,'myInput1')" href="#">Урал</a>
+			<a id="a2" onclick="click_atag(id,'myInput1')" href="#">Алтай</a>
+		  </div>
 			</div>
 
 		<div class="dropdown">
-			<input class="input-content" onclick="func_show('type_drop')" min = "2022-11-07" type="text" placeholder="Вид отдыха" id="myInput2">
+			<input class="input-content" onclick="func_show('type_drop')" min = "2022-11-07" type="text" name = "type" placeholder="Вид отдыха" id="myInput2">
 		  <div id="type_drop" class="dropdown-content">
 			<a id="b1" onclick="click_atag(id,'myInput2')" href="#">Пешие туры</a>
 			<a id="b2" onclick="click_atag(id,'myInput2')" href="#">Сплав</a>
@@ -21,14 +21,16 @@
 		</div>
 
 		<div class="dropdown">
-			<input class="input-content"  onclick="search_d()"  type="text" onfocus="(this.type='date')" placeholder="Дата" id="myInput3" >
-			</div>
-				<button  onclick="search_d()" class="dropbtn"> Поиск</button>
-			</div>
-</div>
+			<input class="input-content"  onclick="data_correct()"  type="text" onfocus="(this.type='date')" placeholder="Дата" id="myInput3" >
+		</div>
 
+			<button  class="dropbtn"> Поиск</button>
 
+		</div>
+		</form>
 		<div class="content">
+			{% for post in posts %}
+
 			<div class="tour-previews_column">
 				<div class="pic">
 					<image src="https://www.rgo.ru/sites/default/files/styles/full_view/public/media/2019-04-03/oleg_menkov.jpg?itok=9yDSYhSm" height="300" width="300" class="full">
@@ -36,9 +38,8 @@
 				</div>
 				<div class="col">
 					<div typeof="button" class="button">
-						<a href="/contact" class="click">Winter week on Sakhalin and Iturup</a>
-						<h5>Sakhalin is a unique region that is interesting not only in summer, but also in winter! Don't miss out
-							a unique opportunity to spend an eventful seven days on such distant but attractive Kuril Islands.</h5>
+						<a href="/contact" class="click">{{ post['place'] }}</a>
+						<h5>{{ post['type'] }}</h5>
 					</div>
 				</div>
 				<div class="price-block">
@@ -52,42 +53,13 @@
 						6 days  5 nights
 					</div>
 					<div class="arrival">
-						Nearest arrival: 19 november
+						Nearest arrival: {{ post['date'] }}
 					</div>
 					<div class="checktour1">
 						<a class="click" href="/contact">Check tour</a>
 					</div>
 				</div>
 			</div>
-			<div class="tour-previews_column">
-				<div class="pic">
-					<image src="https://www.rgo.ru/sites/default/files/styles/full_view/public/media/2019-04-03/oleg_menkov.jpg?itok=9yDSYhSm" height="300" width="300" class="full">
-					</image>
-				</div>
-				<div class="col">
-					<div typeof="button" class="button">
-						<a href="/contact" class="click">Winter week on Sakhalin and Iturup</a>
-						<h5>Sakhalin is a unique region that is interesting not only in summer, but also in winter! Don't miss out
-							a unique opportunity to spend an eventful seven days on such distant but attractive Kuril Islands.</h5>
-					</div>
-				</div>
-				<div class="price-block">
-					<div class="price">
-					 74 200 ₽
-					</div>
-					<!--<div class="checktour">
-						<button class="button_checktour">Check tour</button>
-					</div>-->
-					<div class="days">
-						6 days  5 nights
-					</div>
-					<div class="arrival">
-						Nearest arrival: 19 november
-					</div>
-					<div class="checktour1">
-						<a class="click" href="/contact">Check tour</a>
-					</div>
-				</div>
-			</div>
+			{% endfor %}
 		</div>
 {% endblock %}
