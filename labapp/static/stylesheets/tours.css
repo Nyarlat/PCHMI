@@ -223,7 +223,7 @@ ul {
 }
 
 .fr:hover {
-    transform: scale(1.2);
+    transform: scale(1.5);
 }
 
 .sr {
@@ -234,7 +234,7 @@ ul {
 }
 
 .sr:hover {
-    transform: scale(1.5);
+    transform: scale(2.4);
 }
 
 .program-container {
@@ -243,6 +243,9 @@ ul {
 }
 
 .rev_hide {
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+
 	border-radius: 5px;
 	color: #16a085;
 	border: 2px solid #d1d9e2;
@@ -251,6 +254,11 @@ ul {
 	font-family: Lato;
 	font-weight: 300;
 	background: transparent;
+
+}
+
+.rev_hide:hover {
+    text-shadow: 2px 2px 3px black;
 }
 
 .Tour_program {
