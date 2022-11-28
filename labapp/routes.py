@@ -32,10 +32,10 @@ navmenu = [
         'name': 'SERVICES',
         'addr': '/services'
     },
-    #{
-    #    'name': 'BLOG ',
-    #    'addr': '/blog'
-    #},
+    {
+        'name': 'TOUR ',
+        'addr': '/tour'
+    },
     {
         'name': 'CONTACT',
         'addr': '/contact'
@@ -96,6 +96,12 @@ def tour():
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
     return render_template('tour1.html', title=request.args.get('date_from'), pname='TOUR', navmenu=navmenu, css=css)
 ###NEW UPDATE
+
+@app.route('/order')
+def order():
+    css = "order.css"
+    # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
+    return render_template('order.html', title='Order', pname='ORDER', navmenu=navmenu, css=css)
 @app.route('/tours_create')
 def tour2(posts):
     css = "services.css"
