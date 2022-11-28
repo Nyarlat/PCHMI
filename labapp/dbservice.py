@@ -246,6 +246,8 @@ def testik(form_data):
         date_1 = db.session.execute(f"SELECT * FROM tours WHERE place = '{place}'").fetchall()
     elif type!="":
         date_1 = db.session.execute(f"SELECT * FROM tours WHERE typeoftour = '{type}'").fetchall()
+    else:
+        date_1 = db.session.execute(f"SELECT * FROM tours").fetchall()
     list = []
     for str in date_1:
         d = {'place':str[0],'type':str[1], 'date':str[3]}
@@ -260,3 +262,11 @@ def tour_create(form_data):
     date_1 = db.session.execute(f"SELECT datet FROM tours WHERE place = '{place}' AND typeoftour = '{type}'").fetchall()
     response = redirect(url_for('tour',date_from = date_1))
     return response
+
+def load():
+    date_1 = db.session.execute(f"SELECT * FROM tours").fetchall()
+    list = []
+    for str in date_1:
+        d = {'place':str[0],'type':str[1], 'date':str[3]}
+        list.append(d)
+    return list

@@ -195,7 +195,7 @@ nav ul {
 	padding-left: 150px;
 }
 .content {
-	height: 565px;
+    padding-bottom:20px;
 	width: 960px;
 	background: white;
 	margin: 0 auto;

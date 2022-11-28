@@ -83,10 +83,12 @@ def aboutus():
 @login_required
 def services():
     css = "services.css"
+    list = dbservice.load()
     imgs = ['Logo.png', 'turbine.png', 'Logo-bottom.png']
     js = "services.js"
+    posts = list
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('services.html', title='Services', pname='SERVICES', navmenu=navmenu, imgs=imgs, css=css,js=js)
+    return render_template('services.html', title='Services', pname='SERVICES', posts=posts,navmenu=navmenu, imgs=imgs, css=css,js=js)
 
 @app.route('/tour')
 def tour():
@@ -98,9 +100,9 @@ def tour():
 def tour2(posts):
     css = "services.css"
     posts = posts
-    print(posts)
+    js = "services.js"
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('services.html', title='TOUR2', pname='SERVICES', posts=posts,navmenu=navmenu, css=css)
+    return render_template('services.html', title='Services2', pname='SERVICES', posts=posts,navmenu=navmenu, css=css,js=js)
 
 @app.route('/previous_requests', methods=['GET'])
 def get_previous_requests():
