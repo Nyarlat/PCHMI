@@ -10,7 +10,7 @@ function click_atag(obj1,obj2) {
   prnt.classList.toggle("show");
 }
 
-function search_d() {
+function data_correct() {
     var name,place,date;
     var result;
     place = document.getElementById("myInput1").value;
@@ -33,3 +33,4 @@ function search_d() {
         });
     })
 }
+
