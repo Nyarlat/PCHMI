@@ -58,7 +58,7 @@ background: white;
 .price
 {
     padding-top: 40px;
-	color: #7f8c8d;
+	color: #000000;
 	font-size: 24px;
 	font-family: Lato;
 	font-weight: 500;
@@ -99,7 +99,7 @@ a{
     font-family: Lato;
 }
 .days{
-    color: #7f8c8d;;
+    color: #000000;;
 	font-size: 16px;
     text-align: center;
     font-weight: 400;
@@ -107,7 +107,7 @@ a{
 	margin-top: 15px;
 }
 .arrival{
-    color: #7f8c8d;;
+    color: #000000;;
 	font-size: 16px;
     text-align: center;
     font-weight: 400;
@@ -125,21 +125,27 @@ a{
     font-size: 20px;
 	font-family: Lato;
 	font-weight: 600;
-	color: #7f8c8d;
+	color: #000000;
 }
 
 a:hover{
-	color: white;
-	font-weight: 600;
-    color: black;
+	color: #7fff00;
+	text-shadow: 2px 2px 3px black;
 }
+
+.checktour1 a:hover{
+    color: red;
+    text-shadow: 0px 0px 0px black;
+}
+
+
 h5 {
 	color: #7f8c8d;
 	font-size: 16px;
     text-align: center;
     font-weight: 400;
     font-family: Lato;
-	margin-top: 25px;
+	margin-top: 5px;
 }
 a{
     height: 40px;
@@ -368,7 +374,9 @@ footer{
   display: block;
   }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+background-color: #ddd;
+}
 
 .show {display: block;}
 

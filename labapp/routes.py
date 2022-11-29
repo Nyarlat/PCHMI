@@ -102,6 +102,9 @@ def order():
     css = "order.css"
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
     return render_template('order.html', title='Order', pname='ORDER', navmenu=navmenu, css=css)
+
+
+
 @app.route('/tours_create')
 def tour2(posts):
     css = "services.css"
@@ -114,6 +117,9 @@ def tour2(posts):
 def get_previous_requests():
     previous = dbservice.get_previous_requests()
     return json_response(previous)
+
+
+
 
 
 # Обработка POST-запроса для демонстрации AJAX
@@ -268,7 +274,7 @@ def tour_req():
 @app.route('/api/tour_search',methods=['POST'])
 def tour_return():
     list = dbservice.testik(request.form)
-    if len(list)!=0:
+    if len(list) != 0:
         return tour2(list)
     else:
         return bad_request()

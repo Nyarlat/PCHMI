@@ -33,24 +33,25 @@
 
 			<div class="tour-previews_column">
 				<div class="pic">
-					<image src="https://www.rgo.ru/sites/default/files/styles/full_view/public/media/2019-04-03/oleg_menkov.jpg?itok=9yDSYhSm" height="300" width="300" class="full">
+					<image src = {{post['img']}} height="300" width="300" class="full">
 					</image>
 				</div>
 				<div class="col">
 					<div typeof="button" class="button">
 						<a href="/contact" class="click">{{ post['place'] }}</a>
 						<h5>{{ post['type'] }}</h5>
+						<h5> {{ post['description'] }}</h5>
 					</div>
 				</div>
 				<div class="price-block">
 					<div class="price">
-					 74 200 ₽
+					 {{ post['price'] }} ₽
 					</div>
 					<!--<div class="checktour">
 						<button class="button_checktour">Check tour</button>
 					</div>-->
 					<div class="days">
-						6 days  5 nights
+						{{ post['duration'] }}
 					</div>
 					<div class="arrival">
 						Nearest arrival: {{ post['date'] }}
