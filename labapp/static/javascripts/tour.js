@@ -2,9 +2,7 @@
 
 $(document).ready(function () {
     $('.rev_hide').click(function () {
-            const info = document.querySelectorAll('.info');
-            for(var i=0; i<info.length; i++)
-                info[i].style.display='block';
+        $('.info').toggle();
         //info.style.display="block";
     });
 });
