@@ -275,6 +275,7 @@ def testik(form_data):
         date_1 = db.session.execute(f"SELECT * FROM tours WHERE typeoftour = '{type}'").fetchall()
     else:
         date_1 = db.session.execute(f"SELECT * FROM tours").fetchall()
+    print(date_1)
     list = []
     for str in date_1:
         d = {'place':str[0],'type':str[1], 'date':str[3], 'img': str[4], 'price': str[5], 'description': str[6], 'duration': str[7]}
