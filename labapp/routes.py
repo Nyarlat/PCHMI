@@ -90,11 +90,38 @@ def services():
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
     return render_template('services.html', title='Services', pname='SERVICES', posts=posts,navmenu=navmenu, imgs=imgs, css=css,js=js)
 
-@app.route('/tour')
-def tour():
+###############ALL TOURS
+@app.route('/uralh')
+def tour1():
     css = "tours.css"
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('tour1.html', title=request.args.get('date_from'), pname='TOUR', navmenu=navmenu, css=css)
+    return render_template('uralh.html', title=request.args.get('date_from'), pname='TOUR', navmenu=navmenu, css=css)
+@app.route('/uralc')
+def tour22():
+    css = "tours.css"
+    # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
+    return render_template('uralc.html', title=request.args.get('date_from'), pname='TOUR', navmenu=navmenu, css=css)
+@app.route('/uralr')
+def tour3():
+    css = "tours.css"
+    # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
+    return render_template('uralr.html', title=request.args.get('date_from'), pname='TOUR', navmenu=navmenu, css=css)
+@app.route('/alh')
+def tour4():
+    css = "tours.css"
+    # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
+    return render_template('alh.html', title=request.args.get('date_from'), pname='TOUR', navmenu=navmenu, css=css)
+@app.route('/alc')
+def tour5():
+    css = "tours.css"
+    # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
+    return render_template('alc.html', title=request.args.get('date_from'), pname='TOUR', navmenu=navmenu, css=css)
+@app.route('/alr')
+def tour6():
+    css = "tours.css"
+    # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
+    return render_template('alr.html', title=request.args.get('date_from'), pname='TOUR', navmenu=navmenu, css=css)
+###############ALL TOURS
 ###NEW UPDATE
 
 @app.route('/order')

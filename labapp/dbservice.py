@@ -267,6 +267,7 @@ def search(name):
 def testik(form_data):
     place = form_data.get('place')
     type = form_data.get('type')
+    print(type)
     if place!="" and type!="":
         date_1 = db.session.execute(f"SELECT * FROM tours WHERE place = '{place}' AND typeoftour = '{type}'").fetchall()
     elif place!="":
@@ -278,7 +279,7 @@ def testik(form_data):
     print(date_1)
     list = []
     for str in date_1:
-        d = {'place':str[0],'type':str[1], 'date':str[3], 'img': str[4], 'price': str[5], 'description': str[6], 'duration': str[7]}
+        d = {'place':str[0],'type':str[1], 'date':str[3], 'img': str[4], 'price': str[5], 'description': str[6], 'duration': str[7],'href': str[8]}
         list.append(d)
     #print(list)
     #response = redirect(url_for('tour2',date_from = list))
@@ -297,6 +298,6 @@ def load():
     date_1 = db.session.execute(f"SELECT * FROM tours").fetchall()
     list = []
     for str in date_1:
-        d = {'place':str[0],'type':str[1], 'date':str[3], 'img': str[4], 'price': str[5], 'description': str[6], 'duration': str[7]}
+        d = {'place':str[0],'type':str[1], 'date':str[3], 'img': str[4], 'price': str[5], 'description': str[6], 'duration': str[7],'href': str[8]}
         list.append(d)
     return list
