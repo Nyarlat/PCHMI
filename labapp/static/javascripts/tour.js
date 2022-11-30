@@ -3,6 +3,12 @@
 $(document).ready(function () {
     $('.rev_hide').click(function () {
         $('.info').toggle();
-        //info.style.display="block";
+            if($(this).text() == "See all")
+            {
+                $(this).text("Hide");
+            }
+            else{
+            $(this).text("See all");
+            }
     });
 });
