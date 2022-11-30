@@ -100,8 +100,9 @@ def tour():
 @app.route('/order')
 def order():
     css = "order.css"
+    js = 'order.js'
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('order.html', title='Order', pname='ORDER', navmenu=navmenu, css=css)
+    return render_template('order.html', title='Order', pname='ORDER', navmenu=navmenu, css=css, js=js)
 
 
 
@@ -117,8 +118,6 @@ def tour2(posts):
 def get_previous_requests():
     previous = dbservice.get_previous_requests()
     return json_response(previous)
-
-
 
 
 
@@ -209,8 +208,13 @@ def create_contact_req():
         response = dbservice.create_contact_req(request.json)
         return json_response(response)
 
-
-
+@app.route('/order', methods=['POST'])
+def create_appl():
+    if not request.json:
+        return bad_request()
+    else:
+        response = dbservice.tour_appl(request.json)
+        return json_response(response)
 
 
 @app.route('/api/contactrequest/<int:id>', methods=['PUT'])
