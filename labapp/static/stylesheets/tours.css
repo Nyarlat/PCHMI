@@ -319,6 +319,10 @@ ul {
     padding: 20px;
 }
 
+.price{
+    font-size: 30px;
+}
+
 footer{
 	background: #354556;
 	height: 163px;
