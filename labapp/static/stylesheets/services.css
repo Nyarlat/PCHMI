@@ -112,7 +112,7 @@ a{
     text-align: center;
     font-weight: 400;
     font-family: Lato;
-	margin-top: 15px;
+	margin-top: 6px;
 }
 .checktour1{
 	font-family: Lato;
@@ -206,6 +206,7 @@ nav ul {
 	background: white;
 	margin: 0 auto;
 	text-align: center;
+	min-height: 600px;
 }
 .top-menu{
 	font-family: Open Sans;
