@@ -206,6 +206,7 @@ nav ul {
 	background: white;
 	margin: 0 auto;
 	text-align: center;
+	min-height: 600px;
 }
 .top-menu{
 	font-family: Open Sans;
