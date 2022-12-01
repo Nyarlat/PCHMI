@@ -38,8 +38,8 @@
 				</div>
 				<div class="col">
 					<div typeof="button" class="button">
-						<a href="/contact" class="click">{{ post['place'] }}</a>
-						<h5>{{ post['type'] }}</h5>
+						<a href="/contact" class="click">{{ post['name'] }}</a>
+						<h5>{{ post['place'] }}. {{ post['type'] }}</h5>
 						<h5> {{ post['description'] }}</h5>
 					</div>
 				</div>
@@ -54,7 +54,7 @@
 						{{ post['duration'] }}
 					</div>
 					<div class="arrival">
-						Nearest arrival: {{ post['date'] }}
+						Nearest arrival: <br>{{ post['date'] }}
 					</div>
 					<div class="checktour1">
 						<a class="click" href= {{post['href']}}>Check tour</a>
