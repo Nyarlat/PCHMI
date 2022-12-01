@@ -33,10 +33,6 @@ navmenu = [
         'addr': '/services'
     },
     {
-        'name': 'TOUR ',
-        'addr': '/tour'
-    },
-    {
         'name': 'CONTACT',
         'addr': '/contact'
     },
@@ -62,7 +58,7 @@ def homepage():
     css = "homepage.css"
     imgs = ['Logo.png', 'st-petersburg.jpg','man-touris.jpg', 'Logo-bottom.png']
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('homepage.html', title='Wind Power', pname='HOME', navmenu=navmenu, imgs=imgs, css=css)
+    return render_template('homepage.html', title='Heart of Russia', pname='HOME', navmenu=navmenu, imgs=imgs, css=css)
 
 # Обработка запроса к странице contact.html
 @app.route('/contact')
@@ -95,32 +91,32 @@ def services():
 def tour1():
     css = "tours.css"
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('uralh.html', title=request.args.get('date_from'), pname='TOUR', navmenu=navmenu, css=css)
+    return render_template('uralh.html', title='Tour', pname='TOUR', navmenu=navmenu, css=css)
 @app.route('/uralc')
 def tour22():
     css = "tours.css"
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('uralc.html', title=request.args.get('date_from'), pname='TOUR', navmenu=navmenu, css=css)
+    return render_template('uralc.html', title='Tour', pname='TOUR', navmenu=navmenu, css=css)
 @app.route('/uralr')
 def tour3():
     css = "tours.css"
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('uralr.html', title=request.args.get('date_from'), pname='TOUR', navmenu=navmenu, css=css)
+    return render_template('uralr.html', title='Tour', pname='TOUR', navmenu=navmenu, css=css)
 @app.route('/alh')
 def tour4():
     css = "tours.css"
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('alh.html', title=request.args.get('date_from'), pname='TOUR', navmenu=navmenu, css=css)
+    return render_template('alh.html', title='Tour', pname='TOUR', navmenu=navmenu, css=css)
 @app.route('/alc')
 def tour5():
     css = "tours.css"
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('alc.html', title=request.args.get('date_from'), pname='TOUR', navmenu=navmenu, css=css)
+    return render_template('alc.html', title='Tour', pname='TOUR', navmenu=navmenu, css=css)
 @app.route('/alr')
 def tour6():
     css = "tours.css"
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('alr.html', title=request.args.get('date_from'), pname='TOUR', navmenu=navmenu, css=css)
+    return render_template('alr.html', title='Tour', pname='TOUR', navmenu=navmenu, css=css)
 ###############ALL TOURS
 ###NEW UPDATE
 
@@ -134,12 +130,12 @@ def order():
 
 
 @app.route('/tours_create')
-def tour2(posts):
+def search_serv(posts):
     css = "services.css"
     posts = posts
     js = "services.js"
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
-    return render_template('services.html', title='Services2', pname='SERVICES', posts=posts,navmenu=navmenu, css=css,js=js)
+    return render_template('services.html', title='Services', pname='SERVICES', posts=posts,navmenu=navmenu, css=css,js=js)
 
 @app.route('/previous_requests', methods=['GET'])
 def get_previous_requests():
@@ -306,7 +302,7 @@ def tour_req():
 def tour_return():
     list = dbservice.testik(request.form)
     if len(list) != 0:
-        return tour2(list)
+        return search_serv(list)
     else:
         return bad_request()
 

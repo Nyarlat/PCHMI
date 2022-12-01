@@ -4,7 +4,7 @@
 		<form method="POST" action="/api/tour_search">
 		<div class="banner">
 			<div class="dropdown">
-			<input class="input-content" onclick="func_show('place_drop')" type="text" placeholder="Место" name = "place" id="myInput1" onkeyup="filterFunction()">
+			<input class="input-content" onclick="func_show('place_drop')" type="text" placeholder="Place" name = "place" id="myInput1" onkeyup="filterFunction()">
 		  <div id="place_drop" class="dropdown-content">
 			<a id="a1" onclick="click_atag(id,'myInput1')" href="#">Ural</a>
 			<a id="a2" onclick="click_atag(id,'myInput1')" href="#">Altai</a>
@@ -12,7 +12,7 @@
 			</div>
 
 		<div class="dropdown">
-			<input class="input-content" onclick="func_show('type_drop')" min = "2022-11-07" type="text" name = "type" placeholder="Вид отдыха" id="myInput2">
+			<input class="input-content" onclick="func_show('type_drop')" min = "2022-11-07" type="text" name = "type" placeholder="Type of tour" id="myInput2">
 		  <div id="type_drop" class="dropdown-content">
 			<a id="b1" onclick="click_atag(id,'myInput2')" href="#">Hiking tours</a>
 			<a id="b2" onclick="click_atag(id,'myInput2')" href="#">Rafting</a>
@@ -21,10 +21,10 @@
 		</div>
 
 		<div class="dropdown">
-			<input class="input-content"  onclick="data_correct()"  type="text" onfocus="(this.type='date')" placeholder="Дата" id="myInput3" >
+			<input class="input-content"  onclick="data_correct()"  type="text" onfocus="(this.type='date')" placeholder="Date" id="myInput3" >
 		</div>
 
-			<button  class="dropbtn"> Поиск</button>
+			<button  class="dropbtn">Search</button>
 
 		</div>
 		</form>
