@@ -1,3 +1,7 @@
+import smtplib
+from email.header import Header
+from email.mime.text import MIMEText
+
 from labapp import db
 from datetime import datetime
 import re
@@ -102,7 +106,6 @@ def create_contact_req(json_data):
 
 def tour_appl(json_data):
     try:
-        print("try")
         db.session.execute(f"INSERT INTO subb_appl "
                            f"(first_name, last_name, phone_number, sugg, email, num_of_ad, num_of_child)"
                            f"VALUES ("
@@ -116,9 +119,27 @@ def tour_appl(json_data):
                            ")")
         # Подтверждение изменений в БД
         db.session.commit()
-        return {'message': "ContactRequest Created!"}
-        # Переадресуем на страницу авторизации
-        # если возникла ошибка запроса в БД
+        sender = "heart.of.russia.2022@gmail.com"
+        reciever = ""
+        password = "mkmkvrgsldtrscwv"
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        try:
+            # Формируем тело письма
+            subject = u'Application confirmed '
+            body = u'Hello, for payment go to the link:\nhttps://online.sberbank.ru/'
+            msg = MIMEText(body, 'plain', 'utf-8')
+            msg['Subject'] = Header(subject, 'utf-8')
+            server.login(sender, password)
+            #message = MIMEText("Hello, for payment go to the link:\nhttps://online.sberbank.ru/")
+            server.sendmail(sender, {json_data['email']}, msg.as_string())
+            # Переадресуем на страницу авторизации
+            # если возникла ошибка запроса в БД
+            return {'message': "The message was sent"}
+        except Exception as _ex:
+            return f"{_ex}\nCheck your login or password please!"
+        #return {'message': "ContactRequest Created!"}
+
     except Exception as e:
         # откатываем изменения в БД
         db.session.rollback()
@@ -232,6 +253,7 @@ def register_user(form_data):
     email = form_data.get('emailField')
     # Проверяем полученные данные на наличие обязательных полей
     if username == '' or password == '' or email == '':
+        return make_response(jsonify({'message': 'The data entered are not correct!'}), 400)
         return make_response(jsonify({'message': 'The data entered are not correct!'}), 400)
     # Создаем хеш пароля с солью
     salt = bcrypt.gensalt()
