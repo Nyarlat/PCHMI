@@ -104,12 +104,11 @@ def tour_appl(json_data):
     try:
         print("try")
         db.session.execute(f"INSERT INTO subb_appl "
-                           f"(first_name, last_name, phone_number, arr_date, sugg, email, num_of_ad, num_of_child)"
+                           f"(first_name, last_name, phone_number, sugg, email, num_of_ad, num_of_child)"
                            f"VALUES ("
                            f"'{json_data['fname']}', "
                            f"'{json_data['lname']}', "
                            f"'{json_data['number']}',"
-                           f"'{json_data['arr_data']}', "
                            f"'{json_data['reqtext']}', "
                            f"'{json_data['email']}', "
                            f"'{json_data['num_of_ad']}', "
