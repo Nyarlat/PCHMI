@@ -18,6 +18,7 @@ sendbtn.addEventListener("click", function (e) {
         alert("Пожалуйста, заполните все поля для отправки ");
     }
     else {
+        window.location.href = '/confirm';
         var formdata = JSON.stringify({ fname: fname, lname: lname, email: email, number: number, num_of_ad: num_of_ad, num_of_child: num_of_child, reqtext: reqtext});
        console.log(formdata);
         fetch("/order",

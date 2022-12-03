@@ -127,7 +127,11 @@ def order():
     # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
     return render_template('order.html', title='Order', pname='ORDER', navmenu=navmenu, css=css, js=js)
 
-
+@app.route('/confirm')
+def confirm():
+    css = "confirm.css"
+    # "рендеринг" (т.е. вставка динамически изменяемых данных) index.html и возвращение готовой страницы
+    return render_template('confirm.html', title='Confirm', pname='CONFIRM', navmenu=navmenu, css=css)
 
 @app.route('/tours_create')
 def search_serv(posts):
@@ -237,6 +241,7 @@ def create_appl():
         return bad_request()
     else:
         response = dbservice.tour_appl(request.json)
+        print(response)
         return json_response(response)
 
 
